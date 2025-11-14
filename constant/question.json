@@ -1,0 +1,12 @@
+[
+  {
+    "q": "My favorite color?",
+    "options": ["Red", "Blue", "Green"],
+    "answer": ""
+  },
+  {
+    "q": "My dream place?",
+    "options": ["Goa", "Manali", "Paris"],
+    "answer": ""
+  }
+]

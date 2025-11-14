@@ -1,0 +1,28 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Game {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  creatorName String
+  ownerToken  String   @unique
+  questions   Json
+  responses   Response[]
+  createdAt   DateTime @default(now())
+}
+
+model Response {
+  id        String   @id @default(cuid())
+  friendName String
+  answers   Json
+  score     Int
+  gameId    String
+  game      Game     @relation(fields: [gameId], references: [id])
+  createdAt DateTime @default(now())
+}
